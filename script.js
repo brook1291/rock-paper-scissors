@@ -63,6 +63,7 @@ function playGame() {
     const computer = getComputerChoice();
     console.log(`ROUND ${i + 1}`);
     playRound(human, computer);
+    console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
   }
   if (humanScore === computerScore) {
     console.log(
