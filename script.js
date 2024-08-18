@@ -64,6 +64,18 @@ function playGame() {
     console.log(`ROUND ${i + 1}`);
     playRound(human, computer);
   }
+  if (humanScore === computerScore) {
+    console.log(`It's a draw! You both ended up with a score of ${humanScore}`);
+  } else if (humanScore > computerScore) {
+    console.log(
+      `You win! Your score of ${humanScore} beats the computer's score of ${computerScore}`
+    );
+  } else if (computerScore > humanScore) {
+    console.log(
+      `You lose.. Your score of ${humanScore} was no match for the computer's score of ${computerScore}.`
+    );
+  }
+  console.log('Refresh the page to play again.');
 }
 
 playGame();
