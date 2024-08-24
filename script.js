@@ -5,6 +5,7 @@ const scores = document.querySelector('#scores');
 const playerScore = document.querySelector('#player-score');
 const compScore = document.querySelector('#comp-score');
 const result = document.querySelector('#result');
+const playAgain = document.querySelector('#play-again');
 
 function getComputerChoice() {
   const randomNum = Math.floor(Math.random() * 3) + 1;
