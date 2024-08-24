@@ -1,3 +1,11 @@
+const rockBtn = document.querySelector('#rock-btn');
+const paperBtn = document.querySelector('#paper-btn');
+const scissorsBtn = document.querySelector('#scissors-btn');
+const scores = document.querySelector('#scores');
+const playerScore = document.querySelector('#player-score');
+const compScore = document.querySelector('#comp-score');
+const result = document.querySelector('#result');
+
 function getComputerChoice() {
   const randomNum = Math.floor(Math.random() * 3) + 1;
   if (randomNum === 1) {
