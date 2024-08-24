@@ -58,13 +58,7 @@ function playGame() {
       computerScore++;
     }
   }
-  for (let i = 0; i < 5; i++) {
-    const human = getHumanChoice();
-    const computer = getComputerChoice();
-    console.log(`ROUND ${i + 1}`);
-    playRound(human, computer);
-    console.log(`Human Score: ${humanScore}, Computer Score: ${computerScore}`);
-  }
+
   if (humanScore === computerScore) {
     console.log(
       `It's a draw! You both ended up with a score of ${humanScore}.`
