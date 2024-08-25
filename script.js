@@ -46,10 +46,9 @@ function playGame() {
       computerScore++;
     }
   }
-
+  let humanChoice;
+  let computerChoice;
   while (humanScore < 5 && computerScore < 5) {
-    let humanChoice;
-    let computerChoice;
     buttons.addEventListener('click', (e) => {
       switch (e.target.id) {
         case 'rock-btn':
