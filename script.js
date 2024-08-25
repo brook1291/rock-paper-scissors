@@ -46,29 +46,48 @@ function playGame() {
       computerScore++;
     }
   }
+
   let humanChoice;
   let computerChoice;
-  while (humanScore < 5 && computerScore < 5) {
+  function playRounds() {
     buttons.addEventListener('click', (e) => {
       switch (e.target.id) {
         case 'rock-btn':
           humanChoice = 'rock';
+          console.log(humanChoice);
           break;
         case 'paper-btn':
           humanChoice = 'paper';
+          console.log(humanChoice);
           break;
         case 'scissors-btn':
           humanChoice = 'scissors';
+          console.log(humanChoice);
           break;
       }
+
+      if (humanScore < 5 && computerScore < 5) {
+        computerChoice = getComputerChoice();
+        console.log(computerChoice);
+        playRound(humanChoice, computerChoice);
+        playerScore.textContent = humanScore;
+        compScore.textContent = computerScore;
+        playRounds();
+      } else {
+        if (humanScore > computerScore) {
+          result.textContent =
+            'You win! The computer stood no chance. Do you want the winning streak to continue?';
+        } else if (humanScore < computerScore) {
+          result.textContent =
+            'You lost... The computer was too good for you. Do you want to try again next time?';
+        }
+        playAgain.style.display = 'inline';
+      }
     });
-    computerChoice = getComputerChoice();
-    playRound(humanChoice, computerChoice);
-    playerScore.textContent = humanScore;
-    compScore.textContent = computerScore;
   }
 
-  if (humanScore === computerScore) {
+  playRounds();
+  /* if (humanScore === computerScore) {
     console.log(
       `It's a draw! You both ended up with a score of ${humanScore}.`
     );
@@ -81,7 +100,7 @@ function playGame() {
       `You lose.. Your score of ${humanScore} was no match for the computer's score of ${computerScore}.`
     );
   }
-  console.log('Refresh the page to play again.');
+  console.log('Refresh the page to play again.'); */
 }
 
 playGame();
