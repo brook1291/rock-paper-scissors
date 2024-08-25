@@ -19,6 +19,10 @@ function getComputerChoice() {
   }
 }
 
+playAgain.addEventListener('click', () => {
+  location.reload();
+});
+
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
