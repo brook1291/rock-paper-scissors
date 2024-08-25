@@ -64,6 +64,8 @@ function playGame() {
     });
     computerChoice = getComputerChoice();
     playRound(humanChoice, computerChoice);
+    playerScore.textContent = humanScore;
+    compScore.textContent = computerScore;
   }
 
   if (humanScore === computerScore) {
