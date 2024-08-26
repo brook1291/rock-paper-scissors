@@ -98,9 +98,7 @@ function playGame() {
 
   buttons.addEventListener('click', (e) => {
     humanChoice = e.target.id;
-    console.log(humanChoice);
     computerChoice = getComputerChoice();
-    console.log(computerChoice);
     playRounds();
   });
 }
