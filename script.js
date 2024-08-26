@@ -19,8 +19,20 @@ function getComputerChoice() {
   }
 }
 
+let roundCount = 1;
+
 playAgain.addEventListener('click', () => {
   location.reload();
+  /* humanScore = 0;
+  computerScore = 0;
+  playerScore.textContent = humanScore;
+  compScore.textContent = computerScore;
+  roundCount = 1;
+  playAgain.style.display = 'none';
+  rockBtn.style.display = 'inline';
+  paperBtn.style.display = 'inline';
+  scissorsBtn.style.display = 'inline';
+  result.textContent = ''; */
 });
 
 function playGame() {
@@ -53,7 +65,6 @@ function playGame() {
 
   let humanChoice;
   let computerChoice;
-  let roundCount = 1;
 
   function playRounds() {
     if (humanScore < 5 && computerScore < 5) {
