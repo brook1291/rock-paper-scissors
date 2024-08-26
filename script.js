@@ -74,8 +74,9 @@ function playGame() {
       compScore.textContent = computerScore;
       playerChoiceText.textContent =
         humanChoice !== 'buttons' ? humanChoice : 'N/A';
-      compChoiceText.textContent = computerChoice;
-      roundCount++;
+      compChoiceText.textContent =
+        humanChoice !== 'buttons' ? computerChoice : 'N/A';
+      if (humanChoice !== 'buttons') roundCount++;
     }
 
     if (computerScore === 5 || humanScore === 5) {
