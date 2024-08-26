@@ -67,9 +67,11 @@ function playGame() {
       if (humanScore > computerScore) {
         result.textContent =
           'You win! The computer stood no chance. Do you want the winning streak to continue?';
+        result.classList.toggle('win');
       } else if (humanScore < computerScore) {
         result.textContent =
           'You lost... The computer was too good for you. Do you want to try again next time?';
+        result.classList.toggle('lose');
       }
       rockBtn.style.display = 'none';
       paperBtn.style.display = 'none';
