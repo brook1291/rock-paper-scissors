@@ -60,3 +60,8 @@ button {
 .lose {
   color: rgb(248, 88, 88);
 }
+
+#player-choice,
+#comp-choice {
+  text-transform: uppercase;
+}
