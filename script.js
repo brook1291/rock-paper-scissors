@@ -29,7 +29,7 @@ function playGame() {
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-      result.textContent = `Round ${roundCount}: Nobody wins the round. You both picked ${humanChoice}.`;
+      result.textContent = `Round ${roundCount}: Nobody wins the round.`;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
       result.textContent = `Round ${roundCount}: You win! Your choice of paper beats the computer's rock.`;
       humanScore++;
