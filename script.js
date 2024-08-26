@@ -22,20 +22,6 @@ function getComputerChoice() {
 
 let roundCount = 1;
 
-playAgain.addEventListener('click', () => {
-  location.reload();
-  /* humanScore = 0;
-  computerScore = 0;
-  playerScore.textContent = humanScore;
-  compScore.textContent = computerScore;
-  roundCount = 1;
-  playAgain.style.display = 'none';
-  rockBtn.style.display = 'inline';
-  paperBtn.style.display = 'inline';
-  scissorsBtn.style.display = 'inline';
-  result.textContent = ''; */
-});
-
 function playGame() {
   let humanScore = 0;
   let computerScore = 0;
@@ -97,9 +83,28 @@ function playGame() {
   }
 
   buttons.addEventListener('click', (e) => {
-    humanChoice = e.target.id;
-    computerChoice = getComputerChoice();
-    playRounds();
+    if (e.target.id !== 'play-again') {
+      humanChoice = e.target.id;
+      computerChoice = getComputerChoice();
+      playRounds();
+    }
+  });
+
+  playAgain.addEventListener('click', () => {
+    humanScore = 0;
+    computerScore = 0;
+    playerScore.textContent = humanScore;
+    compScore.textContent = computerScore;
+    roundCount = 1;
+    playAgain.style.display = 'none';
+    rockBtn.style.display = 'inline';
+    paperBtn.style.display = 'inline';
+    scissorsBtn.style.display = 'inline';
+    result.textContent = '';
+    playerChoiceText.textContent = 'N/A';
+    compChoiceText.textContent = 'N/A';
+    result.classList.remove('win');
+    result.classList.remove('lose');
   });
 }
 
