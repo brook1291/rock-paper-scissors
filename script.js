@@ -1,8 +1,7 @@
 const buttons = document.querySelector('#buttons');
-const rockBtn = document.querySelector('#rock-btn');
-const paperBtn = document.querySelector('#paper-btn');
-const scissorsBtn = document.querySelector('#scissors-btn');
-const scores = document.querySelector('#scores');
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
 const playerScore = document.querySelector('#player-score');
 const compScore = document.querySelector('#comp-score');
 const result = document.querySelector('#result');
@@ -92,7 +91,7 @@ function playGame() {
   }
 
   buttons.addEventListener('click', (e) => {
-    humanChoice = e.target.id.replace('-btn', '');
+    humanChoice = e.target.id;
     console.log(humanChoice);
     computerChoice = getComputerChoice();
     console.log(computerChoice);
