@@ -72,7 +72,8 @@ function playGame() {
       playRound(humanChoice, computerChoice);
       playerScore.textContent = humanScore;
       compScore.textContent = computerScore;
-      playerChoiceText.textContent = humanChoice;
+      playerChoiceText.textContent =
+        humanChoice !== 'buttons' ? humanChoice : 'N/A';
       compChoiceText.textContent = computerChoice;
       roundCount++;
     }
