@@ -7,7 +7,7 @@ const compScore = document.querySelector('#comp-score');
 const result = document.querySelector('#result');
 const playAgain = document.querySelector('#play-again');
 const playerChoiceText = document.querySelector('#player-choice');
-const compChoiceText = document.querySelector('#comp-score');
+const compChoiceText = document.querySelector('#comp-choice');
 
 function getComputerChoice() {
   const randomNum = Math.floor(Math.random() * 3) + 1;
@@ -72,6 +72,8 @@ function playGame() {
       playRound(humanChoice, computerChoice);
       playerScore.textContent = humanScore;
       compScore.textContent = computerScore;
+      playerChoiceText.textContent = humanChoice;
+      compChoiceText.textContent = computerChoice;
       roundCount++;
     }
 
