@@ -31,66 +31,62 @@ function playGame() {
     if (humanChoice === computerChoice) {
       result.textContent = `Nobody wins the round. You both picked ${humanChoice}.`;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-      result.textContent = 'You win! Paper beats rock.';
+      result.textContent =
+        "You win the round! Your choice of paper beats the computer's rock.";
       humanScore++;
     } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-      result.textContent = 'You win! Rock beats scissors.';
+      result.textContent =
+        "You win the round! Your choice of rock beats the computer's scissors.";
       humanScore++;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-      result.textContent = 'You win! Scissors beats paper.';
+      result.textContent =
+        "You win the round! Your choice of scissors beats the computer's paper";
       humanScore++;
     } else if (computerChoice === 'paper' && humanChoice === 'rock') {
-      result.textContent = 'You lose... Paper beats rock.';
+      result.textContent = 'You lose the round... Rock loses to paper.';
       computerScore++;
     } else if (computerChoice === 'rock' && humanChoice === 'scissors') {
-      result.textContent = 'You lose.. Rock beats scissors.';
+      result.textContent = 'You lose the round.. Scissors loses to rock.';
       computerScore++;
     } else if (computerChoice === 'scissors' && humanChoice === 'paper') {
-      result.textContent = 'You lose... Scissors beats paper.';
+      result.textContent = 'You lose the round... Paper loses to scissors.';
       computerScore++;
     }
   }
 
   let humanChoice;
   let computerChoice;
-  function playRounds() {
-    buttons.addEventListener('click', (e) => {
-      switch (e.target.id) {
-        case 'rock-btn':
-          humanChoice = 'rock';
-          console.log(humanChoice);
-          break;
-        case 'paper-btn':
-          humanChoice = 'paper';
-          console.log(humanChoice);
-          break;
-        case 'scissors-btn':
-          humanChoice = 'scissors';
-          console.log(humanChoice);
-          break;
-      }
+  let roundCount = 0;
 
-      if (humanScore < 5 && computerScore < 5) {
-        computerChoice = getComputerChoice();
-        console.log(computerChoice);
-        playRound(humanChoice, computerChoice);
-        playerScore.textContent = humanScore;
-        compScore.textContent = computerScore;
-        playRounds();
-      } else {
-        if (humanScore > computerScore) {
-          result.textContent =
-            'You win! The computer stood no chance. Do you want the winning streak to continue?';
-        } else if (humanScore < computerScore) {
-          result.textContent =
-            'You lost... The computer was too good for you. Do you want to try again next time?';
-        }
-        playAgain.style.display = 'inline';
+  function playRounds() {
+    if (humanScore < 5 && computerScore < 5) {
+      playRound(humanChoice, computerChoice);
+      playerScore.textContent = humanScore;
+      compScore.textContent = computerScore;
+    }
+
+    if (computerScore === 5 || humanScore === 5) {
+      if (humanScore > computerScore) {
+        result.textContent =
+          'You win! The computer stood no chance. Do you want the winning streak to continue?';
+      } else if (humanScore < computerScore) {
+        result.textContent =
+          'You lost... The computer was too good for you. Do you want to try again next time?';
       }
-    });
+      rockBtn.style.display = 'none';
+      paperBtn.style.display = 'none';
+      scissorsBtn.style.display = 'none';
+      playAgain.style.display = 'inline';
+    }
   }
 
-  playRounds();
+  buttons.addEventListener('click', (e) => {
+    humanChoice = e.target.id.replace('-btn', '');
+    console.log(humanChoice);
+    computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    playRounds();
+  });
 }
 
 playGame();
