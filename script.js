@@ -29,40 +29,38 @@ function playGame() {
 
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
-      result.textContent = `Nobody wins the round. You both picked ${humanChoice}.`;
+      result.textContent = `Round ${roundCount}: Nobody wins the round. You both picked ${humanChoice}.`;
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
-      result.textContent =
-        "You win the round! Your choice of paper beats the computer's rock.";
+      result.textContent = `Round ${roundCount}: You win! Your choice of paper beats the computer's rock.`;
       humanScore++;
     } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
-      result.textContent =
-        "You win the round! Your choice of rock beats the computer's scissors.";
+      result.textContent = `Round ${roundCount}: You win! Your choice of rock beats the computer's scissors.`;
       humanScore++;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
-      result.textContent =
-        "You win the round! Your choice of scissors beats the computer's paper";
+      result.textContent = `Round ${roundCount}: You win! Your choice of scissors beats the computer's paper.`;
       humanScore++;
     } else if (computerChoice === 'paper' && humanChoice === 'rock') {
-      result.textContent = 'You lose the round... Rock loses to paper.';
+      result.textContent = `Round ${roundCount}: You lose... Paper beats rock.`;
       computerScore++;
     } else if (computerChoice === 'rock' && humanChoice === 'scissors') {
-      result.textContent = 'You lose the round.. Scissors loses to rock.';
+      result.textContent = `Round ${roundCount}: You lose... Rock beats scissors.`;
       computerScore++;
     } else if (computerChoice === 'scissors' && humanChoice === 'paper') {
-      result.textContent = 'You lose the round... Paper loses to scissors.';
+      result.textContent = `Round ${roundCount}: You lose... Scissors beats paper.`;
       computerScore++;
     }
   }
 
   let humanChoice;
   let computerChoice;
-  let roundCount = 0;
+  let roundCount = 1;
 
   function playRounds() {
     if (humanScore < 5 && computerScore < 5) {
       playRound(humanChoice, computerChoice);
       playerScore.textContent = humanScore;
       compScore.textContent = computerScore;
+      roundCount++;
     }
 
     if (computerScore === 5 || humanScore === 5) {
