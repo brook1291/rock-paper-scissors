@@ -29,23 +29,30 @@ function playGame() {
   function playRound(humanChoice, computerChoice) {
     if (humanChoice === computerChoice) {
       result.textContent = `Round ${roundCount}: Nobody wins the round.`;
+      result.removeAttribute('class');
     } else if (humanChoice === 'paper' && computerChoice === 'rock') {
       result.textContent = `Round ${roundCount}: You win! Your choice of paper beats the computer's rock.`;
+      result.setAttribute('class', 'win');
       humanScore++;
     } else if (humanChoice === 'rock' && computerChoice === 'scissors') {
       result.textContent = `Round ${roundCount}: You win! Your choice of rock beats the computer's scissors.`;
+      result.setAttribute('class', 'win');
       humanScore++;
     } else if (humanChoice === 'scissors' && computerChoice === 'paper') {
       result.textContent = `Round ${roundCount}: You win! Your choice of scissors beats the computer's paper.`;
+      result.setAttribute('class', 'win');
       humanScore++;
     } else if (computerChoice === 'paper' && humanChoice === 'rock') {
       result.textContent = `Round ${roundCount}: You lose... Paper beats rock.`;
+      result.setAttribute('class', 'lose');
       computerScore++;
     } else if (computerChoice === 'rock' && humanChoice === 'scissors') {
       result.textContent = `Round ${roundCount}: You lose... Rock beats scissors.`;
+      result.setAttribute('class', 'lose');
       computerScore++;
     } else if (computerChoice === 'scissors' && humanChoice === 'paper') {
       result.textContent = `Round ${roundCount}: You lose... Scissors beats paper.`;
+      result.setAttribute('class', 'lose');
       computerScore++;
     }
   }
@@ -69,11 +76,11 @@ function playGame() {
       if (humanScore > computerScore) {
         result.textContent =
           'You win! The computer stood no chance. Do you want the winning streak to continue?';
-        result.classList.toggle('win');
+        result.setAttribute('class', 'win');
       } else if (humanScore < computerScore) {
         result.textContent =
           'You lost... The computer was too good for you. Do you want to try again next time?';
-        result.classList.toggle('lose');
+        result.setAttribute('class', 'lose');
       }
       rockBtn.style.display = 'none';
       paperBtn.style.display = 'none';
